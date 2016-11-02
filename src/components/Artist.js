@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//artist component requirements:
-//artist large image
+//artist specs:
+//artist image
 //artist Name
 //artist followers
 //artist thumbnail img
