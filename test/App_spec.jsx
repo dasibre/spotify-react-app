@@ -4,7 +4,7 @@ import { renderIntoDocument, findRenderedDOMComponentWithTag } from 'react-addon
 import App from '../src/App';
 
 describe('App', () => {
-  it('should render h1 with Testing es6-react', () => {
+  it('should render h1 with "Testing es6-react"', () => {
     const txt = 'Testing es6-react';
     const component = renderIntoDocument(<App />);
     const h1 = findRenderedDOMComponentWithTag(component, 'h1');
