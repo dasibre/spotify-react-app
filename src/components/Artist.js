@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-
-class Artist extends Component {
-  render() {
-    return (
-      <div>
-        <h1>I am an artist</h1>
-        <img src={this.props.artistSplash} />
-      </div>
-    );
-  }
-}
+//artist component requirements:
+//artist large image
+//artist Name
+//artist followers
+//artist thumbnail img
+const Artist = (props) => {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <img src={props.imageUrl}></img>
+      <span>{props.followers}</span>
+    </div>
+  );
+};
 
 export default Artist;

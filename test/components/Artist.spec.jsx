@@ -1,23 +1,7 @@
-import path from 'path';
 import React, { Component } from 'react';
 import { expect } from 'chai';
 import { renderIntoDocument, findRenderedDOMComponentWithTag } from 'react-addons-test-utils';
-// import Artist from '../../src/components/Artist'
-
-//artist component requirements:
-//artist large image
-//artist Name
-//artist followers
-//artist thumbnail img
-const Artist = (props) => {
-  return (
-    <div>
-      <h1>{props.name}</h1>
-      <img src={props.imageUrl}></img>
-      <span>{props.followers}</span>
-    </div>
-  );
-};
+import Artist from '../../src/components/Artist'
 
 class Wrapper extends Component {
   render() {
