@@ -4,12 +4,12 @@ import React, { Component } from 'react';
 //artist Name
 //artist followers
 //artist thumbnail img
-const Artist = (props) => {
+const Artist = ({name,imageUrl,followers}) => {
   return (
     <div>
-      <h1>{props.name}</h1>
-      <img src={props.imageUrl}></img>
-      <span>{props.followers}</span>
+      <h1>{name}</h1>
+      <img src={imageUrl}></img>
+      <span>{followers}</span>
     </div>
   );
 };
