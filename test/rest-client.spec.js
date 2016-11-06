@@ -30,24 +30,21 @@ describe('RestClient', () => {
     };
   });
 
-  afterEach(function(){
+  afterEach(() =>{
     xhr.restore();
   });
 
-  it('should make request to url', function() {
-    RestClient.get('http://example.com',sinon.spy());
+  it('should make request to url', () => {
+    RestClient.get('http://example.com', sinon.spy());
     expect(requests[0].url).to.equal('http://example.com');
   });
 
-  it('should make get request to url and return data', function(done) {
+  it('should make get request to url and return data', (done) => {
     const data = {foo:'bar'};
-    const url = 'http://example.com';
-    const jsonData = JSON.stringify(data);
-    const callBack = (err,results) => {
+    RestClient.get('http://example.com', sinon.spy((err,results) => {
       expect(results).to.deep.equal(data);
       done();
-    };
-    RestClient.get(url,sinon.spy(callBack));
-    requests[0].respond(200, { 'Content-Type': 'text/json' }, jsonData);
+    }));
+    requests[0].respond(200, { 'Content-Type': 'text/json' }, JSON.stringify(data));
   });
 });
