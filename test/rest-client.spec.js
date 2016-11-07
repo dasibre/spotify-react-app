@@ -1,22 +1,6 @@
 import { expect } from 'chai';
+import RestClient from '../src/rest-client';
 import sinon from 'sinon';
-
-const RestClient = {
-  get(url,callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('Get',url,true);
-    xhr.onreadystatechange = () => {
-      if(xhr.readyState === 4) {
-        if(xhr.status === 200) {
-          callback(null,JSON.parse(xhr.responseText));
-        } else {
-          callback(xhr.status);
-        }
-      }
-    };
-    xhr.send();
-  }
-};
 
 describe('RestClient', () => {
   let requests;
@@ -30,16 +14,16 @@ describe('RestClient', () => {
     };
   });
 
-  afterEach(() =>{
+  afterEach(() => {
     xhr.restore();
   });
 
-  it('should make request to url', () => {
+  it('should make request to given url', () => {
     RestClient.get('http://example.com', sinon.spy());
     expect(requests[0].url).to.equal('http://example.com');
   });
 
-  it('should make get request to url and return data', (done) => {
+  it('should get result data from requested url', (done) => {
     const data = {foo:'bar'};
     RestClient.get('http://example.com', sinon.spy((err,results) => {
       expect(results).to.deep.equal(data);
