@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "webpack": "node_modules/webpack/bin/webpack.js",
+    "e2eTest": "karma start",
+    "watch:test": "e2eTest -- --auto-watch --no-single-run",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\" --watch --watch-extensions jsx"
   },
   "keywords": [],
